@@ -22,7 +22,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(338, 313)
+        Form.resize(569, 456)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -83,6 +83,12 @@ class Ui_Form(object):
 
         self.horizontalLayout.addWidget(self.bplus)
 
+        self.bdel = QPushButton(Form)
+        self.bdel.setObjectName(u"bdel")
+        self.bdel.setFont(font1)
+
+        self.horizontalLayout.addWidget(self.bdel)
+
 
         self.verticalLayout.addLayout(self.horizontalLayout)
 
@@ -111,6 +117,12 @@ class Ui_Form(object):
         self.bminus.setFont(font1)
 
         self.horizontalLayout_2.addWidget(self.bminus)
+
+        self.blbracket = QPushButton(Form)
+        self.blbracket.setObjectName(u"blbracket")
+        self.blbracket.setFont(font1)
+
+        self.horizontalLayout_2.addWidget(self.blbracket)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout_2)
@@ -141,6 +153,12 @@ class Ui_Form(object):
 
         self.horizontalLayout_3.addWidget(self.btimes)
 
+        self.brbracket = QPushButton(Form)
+        self.brbracket.setObjectName(u"brbracket")
+        self.brbracket.setFont(font1)
+
+        self.horizontalLayout_3.addWidget(self.brbracket)
+
 
         self.verticalLayout.addLayout(self.horizontalLayout_3)
 
@@ -170,6 +188,12 @@ class Ui_Form(object):
 
         self.horizontalLayout_4.addWidget(self.bdiv)
 
+        self.bequ = QPushButton(Form)
+        self.bequ.setObjectName(u"bequ")
+        self.bequ.setFont(font1)
+
+        self.horizontalLayout_4.addWidget(self.bequ)
+
 
         self.verticalLayout.addLayout(self.horizontalLayout_4)
 
@@ -187,17 +211,21 @@ class Ui_Form(object):
         self.b2.setText(QCoreApplication.translate("Form", u"2", None))
         self.b3.setText(QCoreApplication.translate("Form", u"3", None))
         self.bplus.setText(QCoreApplication.translate("Form", u"+", None))
+        self.bdel.setText(QCoreApplication.translate("Form", u"Del", None))
         self.b4.setText(QCoreApplication.translate("Form", u"4", None))
         self.b5.setText(QCoreApplication.translate("Form", u"5", None))
         self.b6.setText(QCoreApplication.translate("Form", u"6", None))
         self.bminus.setText(QCoreApplication.translate("Form", u"-", None))
+        self.blbracket.setText(QCoreApplication.translate("Form", u"(", None))
         self.b7.setText(QCoreApplication.translate("Form", u"7", None))
         self.b8.setText(QCoreApplication.translate("Form", u"8", None))
         self.b9.setText(QCoreApplication.translate("Form", u"9", None))
         self.btimes.setText(QCoreApplication.translate("Form", u"x", None))
+        self.brbracket.setText(QCoreApplication.translate("Form", u")", None))
         self.bdot.setText(QCoreApplication.translate("Form", u".", None))
         self.b0.setText(QCoreApplication.translate("Form", u"0", None))
         self.bAC.setText(QCoreApplication.translate("Form", u"AC", None))
         self.bdiv.setText(QCoreApplication.translate("Form", u"/", None))
+        self.bequ.setText(QCoreApplication.translate("Form", u"=", None))
     # retranslateUi
 

@@ -27,6 +27,10 @@ class basic_calculator(QWidget):
         self.ui.bminus.clicked.connect(self.bminus)
         self.ui.btimes.clicked.connect(self.btimes)
         self.ui.bdiv.clicked.connect(self.bdiv)
+        self.ui.bdel.clicked.connect(self.bdel)
+        self.ui.bequ.clicked.connect(self.bequ)
+        self.ui.blbracket.clicked.connect(self.blbracket)
+        self.ui.brbracket.clicked.connect(self.brbracket)
         
         self.equation = ''
         self.result = ''
@@ -41,7 +45,7 @@ class basic_calculator(QWidget):
             rlt = float(nums[0])+float(nums[1])
         elif '-' in self.equation:
             rlt = float(nums[0])-float(nums[1])
-        elif 'x' in self.equation:
+        elif '*' in self.equation:
             rlt = float(nums[0])*float(nums[1])
         elif '/' in self.equation:
             rlt = float(nums[0])/float(nums[1])
@@ -50,51 +54,59 @@ class basic_calculator(QWidget):
 
         self.result = str(rlt)
     
+    def calc1(self):
+        try:
+            self.result = str(eval(self.equation))
+        except:
+            self.result = '你在干神魔？'
+
     def display_update(self):
         self.ui.lblequ.setText(QCoreApplication.translate("Form", self.equation, None))
         self.ui.lblans.setText(QCoreApplication.translate("Form", self.result, None))  
 
-    def calc_update(self,num):
+    def equ_update(self,oper):
         # 保存操作
-        self.equation += num
+        self.equation += oper
 
         # 计算更新
-        self.calc()
+        #self.calc()
+        #self.calc1()
+
         # 更新显示
         self.display_update()
 
     def b1(self):
-        self.calc_update('1')
+        self.equ_update('1')
 
     def b2(self):
-        self.calc_update('2')
+        self.equ_update('2')
 
     def b3(self):
-        self.calc_update('3')
+        self.equ_update('3')
 
     def b4(self):
-        self.calc_update('4')
+        self.equ_update('4')
 
     def b5(self):
-        self.calc_update('5')
+        self.equ_update('5')
 
     def b6(self):
-        self.calc_update('6')
+        self.equ_update('6')
 
     def b7(self):
-        self.calc_update('7')
+        self.equ_update('7')
 
     def b8(self):
-        self.calc_update('8')
+        self.equ_update('8')
 
     def b9(self):
-        self.calc_update('9')
+        self.equ_update('9')
 
     def b0(self):
-        self.calc_update('0')
+        self.equ_update('0')
 
     def bdot(self):
-        self.calc_update('.')    
+        self.equ_update('.')    
 
     def bAC(self):
         self.equation = ''
@@ -102,26 +114,32 @@ class basic_calculator(QWidget):
 
         self.display_update()
 
-    def oper_update(self,operation):
-        if len(re.split('\+|-|x|/',self.equation)) == 2:
-            self.calc()
-            self.equation = self.result
-        
-        self.equation += operation
-        self.display_update()
-
     def bplus(self):
-        self.oper_update('+')
+        self.equ_update('+')
 
     def bminus(self):
-        self.oper_update('-')
+        self.equ_update('-')
 
     def btimes(self):
-        self.oper_update('x')
+        self.equ_update('*')
 
     def bdiv(self):
-        self.oper_update('/')
+        self.equ_update('/')
     
+    def bdel(self):
+        self.equation = self.equation[:-1]
+
+        self.display_update()
+
+    def bequ(self):
+        self.calc1()
+        self.display_update()
+
+    def blbracket(self):
+        self.equ_update('(')
+
+    def brbracket(self):
+        self.equ_update(')')
 
 class basic_calc_with_another_way_to_init(QWidget,Ui_Form):
     def __init__(self):
